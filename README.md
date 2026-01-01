@@ -4,61 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="D&E Studio">
-    <title>D&E -studio</title>
+    <title>D&E Studio | Indie Game Dev</title>
     <style>
-        /* Variáveis CSS para cores e espaçamento */
         :root {
-            --primary-color: #333;
-            --secondary-color: #444;
-            --accent-color: #555;
+            --primary-color: #222;
+            --secondary-color: #333;
+            --accent-color: #007bff; /* Um tom azul sutil para links e destaques */
             --text-color: #333;
-            --light-bg: #f4f4f4;
-            --light-section: #eee;
+            --light-bg: #f8f9fa;
+            --light-section: #ffffff;
             --white: #fff;
-            --shadow: 0 2px 5px rgba(0,0,0,0.1);
-            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --border-radius: 12px;
             --transition: all 0.3s ease;
         }
 
-        /* Reset e estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             background-color: var(--light-bg);
             color: var(--text-color);
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho Melhorado */
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
-            padding: 2rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            letter-spacing: 2px;
             margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            text-transform: uppercase;
         }
 
         /* Navegação */
         nav {
-            background-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .nav-container {
@@ -66,263 +64,234 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
         nav a {
-            color: var(--white);
+            color: var(--secondary-color);
             text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
             transition: var(--transition);
+            font-size: 0.9rem;
         }
 
-        nav a:hover,
-        nav a:focus {
-            background-color: var(--accent-color);
+        nav a:hover {
+            background-color: var(--secondary-color);
             color: var(--white);
         }
 
-        /* Seções principais */
         main {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 1rem;
         }
 
         section {
-            padding: 3rem 1rem;
+            padding: 4rem 1.5rem;
             margin: 2rem 0;
+            background: var(--light-section);
             border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
 
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             color: var(--primary-color);
             text-align: center;
+            position: relative;
         }
 
-        /* Seção Home */
-        #home {
-            background-color: var(--light-section);
-            text-align: center;
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+            border-radius: 2px;
         }
 
+        /* Team Members */
         .team-members {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .member {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            min-width: 250px;
-        }
-
-        /* Seção Novidades */
-        #novidades {
-            background-color: var(--white);
-        }
-
-        .novidade {
-            max-width: 800px;
-            margin: 2rem auto;
             background: var(--light-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .novidade h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .novidade .date {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .download-link {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            margin-top: 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
+            text-align: center;
             transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .download-link:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Seção Contato */
-        #contato {
-            background-color: var(--light-section);
+        .member h3 {
+            font-size: 0.9rem;
+            color: #777;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .member strong {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        /* Novidades */
+        .novidade {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            background: #fff;
+        }
+
+        .date {
+            display: inline-block;
+            background: #eee;
+            padding: 2px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .game-features li {
+            background: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contato */
+        .contact-card {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
             text-align: center;
         }
 
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-info p {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-        }
-
         .email-link {
-            color: var(--primary-color);
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #fff;
+            font-size: 1.2rem;
             text-decoration: none;
-            font-weight: bold;
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 30px;
             transition: var(--transition);
         }
 
         .email-link:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+            background: white;
+            color: var(--primary-color);
         }
 
-        /* Rodapé */
         footer {
-            background-color: var(--primary-color);
-            color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 3rem;
+            color: #777;
+            font-size: 0.9rem;
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-
-            .team-members {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .member {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            .novidade,
-            .contact-info {
-                padding: 1.5rem;
-            }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .nav-container { gap: 0.5rem; flex-wrap: wrap; }
+            nav a { font-size: 0.8rem; padding: 0.5rem; }
         }
     </style>
 </head>
 <body>
-    <header role="banner">
-        <h1>D&E -studio</h1>
-        <p></p>
+    <header>
+        <h1>D&E Studio</h1>
+        <p>Criando experiências independentes</p>
     </header>
-    <main role="main">
-        <section id="home" aria-labelledby="home-title">
-            <h2 id="home-title">Bem-vindo ao D&E Studio</h2>
-            <p>Dois caras + Força de Vontade = Um Estúdio independente!</p>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home">Início</a>
+            <a href="#novidades">Novidades</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Sobre o Estúdio</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                "Dois caras + Força de Vontade = Um Estúdio independente!"
+            </p>
             
             <div class="team-members">
-                <div class="member" role="article">
-                    <h3>Desenvolvedor:</h3>
-                    <p><strong>Davi</strong></p>
+                <div class="member">
+                    <h3>Desenvolvedor</h3>
+                    <strong>Davi</strong>
                 </div>
-                <div class="member" role="article">
-                    <h3>Designer:</h3>
-                    <p><strong>Enzo</strong></p>
+                <div class="member">
+                    <h3>Designer</h3>
+                    <strong>Enzo</strong>
                 </div>
             </div>
         </section>
         
-        <section id="novidades" aria-labelledby="news-title">
-            <h2 id="news-title">Novidades</h2>
+        <section id="novidades">
+            <h2>Novidades</h2>
             
-            <article class="novidade" role="article">
-                <h3>Jogo em desenvolvimento: Just Move!</h3>
-                <time class="date" datetime="2025-12-30">30 de Dezembro de 2025</time>
-                <p>Jogo em fase teste: <strong>Just Move!</strong></p>
-                <p>Um jogo de ação onde você precisa desviar de inimigos, coletar power-ups e sobreviver o máximo possível.</p>
-                <p>Características do jogo:</p>
-                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>Controles simples com teclado WASD</li>
-                    <li>Sistema de power-ups (vida, escudo, velocidade, arma)</li>
-                    <li>Diferentes tipos de inimigos</li>
-                    <li>Sistema de progressão por níveis</li>
- 		    <li>Mais informações depois...</li>               
+            <article class="novidade">
+                <span class="date">30 de Dezembro de 2025</span>
+                <h3>Just Move! <small style="color: var(--accent-color);">(Em Testes)</small></h3>
+                <p>Um jogo de ação focado em reflexos, onde sobreviver é o seu único objetivo.</p>
+                
+                <ul class="game-features">
+                    <li>- Controles WASD</li>
+                    <li>- Power-ups dinâmicos</li>
+                    <li>- Inimigos variados</li>
+                    <li>- Progressão de Nível</li>
                 </ul>
             </article>
             
-            <article class="novidade" role="article">
-                <h3>O inicio ↓↓↓</h3>
-                <time class="date" datetime="2025-12-23">25 de Dezembro de 2025</time>
-                <p>Estamos iniciando nosso Studio Indie...</p>
+            <article class="novidade">
+                <span class="date">25 de Dezembro de 2025</span>
+                <h3>O Início</h3>
+                <p>Começo da D&E Studio.</p>
             </article>
         </section>
         
-        <section id="contato" aria-labelledby="contact-title">
-            <h2 id="contact-title">Entre em Contato</h2>
-            <div class="contact-info">
-                <p>Quer dar um feedback ou ideia ?</p>
-                <p>Entre em contato conosco através do email:</p>
-                <p>
-                    <a href="mailto:davi.phantom07@gmail.com" class="email-link" aria-label="Enviar email para D&E -Studio">
-                        davi.phantom07@gmail.com
-                    </a>
-                </p>
-                <p>D&E Studio lhe espera!</p>
+        <section id="contato">
+            <div class="contact-card">
+                <h2>Contato</h2>
+                <p>Tem uma ideia ou feedback? Fale conosco!</p>
+                <a href="mailto:davi.phantom07@gmail.com" class="email-link">
+                    ✉ davi.phantom07@gmail.com
+                </a>
+                <p style="margin-top: 1.5rem; opacity: 0.7;">D&E Studio lhe espera!</p>
             </div>
         </section>
     </main>
     
-    <footer role="contentinfo">
-        <p>© 2025 D&E Studio. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desenvolvido por Davi e Enzo</p>
+    <footer>
+        <p>© 2025 D&E Studio</p>
+        <p>Por : Davi e Enzo</p>
     </footer>
 </body>
 </html>
